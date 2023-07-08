@@ -34,11 +34,4 @@ function agregarPersona(){
     }
 }
 
-function cargarAgregados(){
-    let nombreA = localStorage.getItem("Nombre");
-    let apellidoA = localStorage.getItem("Apellido");
-
-    document.getElementById('persona').innerHTML = `${nombreA}, ${apellidoA}`;
-    mostrarPersonas();
-}
 
