@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    <style>
+        body{
+            text-align: center;
+            font-family:Arial, Helvetica, sans-serif;
+            background-color: rgb(150, 189, 235);
+            display: flex;
+            justify-content: center;
+        }
+
+        .contenedor{
+            background-color: rgb(240, 210, 210);
+            max-width: 400px;
+            min-height: 150px;
+            border-radius: 15px;
+        }
+
+        input{
+            height: 50px;
+            width: 190px;
+            text-align: center;
+            border-radius: 15px;
+            border: none;
+            font-size: 30px;
+        }
+
+        button{
+            font-size: 35px;
+            background: none;
+            border: none;
+            color: #28B9B5;
+            cursor: pointer;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 1.1;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>Contador</h1>
+
+        <button onclick="sumar()">
+            <ion-icon name="add-circle-outline"></ion-icon>
+        </button>
+    
+        <input type="number" value="0">
+    
+       <button onclick="restar()">
+            <ion-icon name="remove-circle-outline"></ion-icon>
+       </button>
+    </div>
+
+    <script>
+        input = document.querySelector('input')
+
+        let sumar = () => {
+            input.value = parseInt(input.value) + 1;
+        }
+
+        let restar = () => {
+            input.value = parseInt(input.value) - 1;
+        }
+
+    </script>
+
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

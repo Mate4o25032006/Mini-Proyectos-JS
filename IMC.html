@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indicador IMC</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            box-sizing: border-box;
+        }
+
+        .container{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container-imc{
+            background: linear-gradient(to top, lime, 20%, cyan);
+            border-radius: 25px;
+            max-width: 400px;
+            min-height: 400px;
+            padding: 25px;
+            font-size: 21px;
+        }
+
+        input{
+            border: none;
+            border-radius: 10px;
+            height: 40px;
+            margin-top: 15px;
+            width: 100%;
+            font-size: 20px;
+        }
+
+        .container-result{
+            border: dotted;
+            width: 100%;
+            border-radius: 15px;
+            max-height: 70px;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        button{
+            border: none;
+            border-radius: 15px;
+            width: 100%;
+            height: 60px;
+            margin-top: 15px;
+            background-color:lightcyan;
+            font-size: 21px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora IMC</h1>
+        <div class="container-imc">
+            <form id="formulario">
+                <label for="altura">Altura (mt): 
+                <input type="number" id="altura">
+        
+                <label for="peso">Peso (kg): 
+                <input type="number" id="peso">
+            </form>
+
+            <div class="container-result">
+                <p id="resultado">Rango IMC:</p>
+            </div>
+
+            <button id="enviar" onclick="calcular()" type="button">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+        function calcular(){
+            let formulario = document.forms['formulario'];
+            let peso = formulario['peso'];
+            let altura = formulario['altura'];
+            
+            let imc = parseInt(peso.value) / (altura.value ** 2)
+            
+            if(peso.value !== '' && altura.value !== ''){
+                if(imc < 18.5){
+                    document.getElementById('resultado').innerHTML = `Rango IMC: ${imc.toFixed(2)} | BAJO`;
+                }else if(imc < 25){
+                    document.getElementById('resultado').innerHTML = `Rango IMC: ${imc.toFixed(2)} | NORMAL`;
+                }else if(imc < 30){
+                    document.getElementById('resultado').innerHTML = `Rango IMC: ${imc.toFixed(2)} | SOBREPESO`;
+                }else if(imc > 30){
+                    document.getElementById('resultado').innerHTML = `Rango IMC: ${imc.toFixed(2)} | OBESIDAD`;
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
